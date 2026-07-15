@@ -18,7 +18,7 @@
 #### - Metacritic Score
 #### - Release Date
 
-### Kaggle: https://www.kaggle.com/datasets/artermiloff/steam-games-dataset
+#### Kaggle: https://www.kaggle.com/datasets/artermiloff/steam-games-dataset
 
 ## Project Framework
 ### This project follows the CRISP-DM methodology:
