@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Steam Analytics</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+
+overflow:hidden;
+background:#171A21;
+color:white;
+
+}
+/* =======================
+BACKGROUND
+======================= */
+
+.background{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:url("https://images.unsplash.com/photo-1542751371-adc38448a05e");
+
+background-size:cover;
+
+background-position:center;
+
+filter:brightness(.4);
+
+animation:zoom 18s infinite alternate;
+
+z-index:-3;
+
+}
+
+.overlay{
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+180deg,
+rgba(0,0,0,.2),
+rgba(0,0,0,.7)
+);
+
+backdrop-filter:blur(4px);
+
+z-index:-2;
+
+}
+
+@keyframes zoom{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.15);
+
+}
+
+}
+@keyframes zoom{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.15);
+
+}
+
+}
+.splash{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+transition:1s;
+
+background:transparent;
+
+}
+
+.logo{
+
+font-size:90px;
+
+color:#66C0F4;
+
+margin-bottom:15px;
+
+animation:float 3s infinite;
+
+}
+
+.title{
+
+font-size:70px;
+
+font-weight:800;
+
+letter-spacing:10px;
+
+}
+
+.subtitle{
+
+font-size:26px;
+
+color:#66C0F4;
+
+letter-spacing:12px;
+
+margin-bottom:60px;
+
+}
+.loading{
+
+width:420px;
+
+height:8px;
+
+background:#223447;
+
+border-radius:50px;
+
+overflow:hidden;
+
+margin-bottom:20px;
+
+}
+
+.progress{
+
+height:100%;
+
+width:0%;
+
+background:#66C0F4;
+
+animation:loading 4s forwards;
+
+}
+
+@keyframes loading{
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+.dashboard{
+
+display:none;
+
+height:100vh;
+
+animation:fade 1s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+.hero{
+
+text-align:center;
+
+padding:80px 20px 50px;
+
+}
+
+.hero h1{
+
+font-size:55px;
+
+font-weight:800;
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+color:#b8b6b4;
+
+max-width:800px;
+
+margin:auto;
+
+line-height:35px;
+
+}
+.section-title{
+
+font-size:34px;
+
+text-align:center;
+
+margin:50px 0;
+
+color:#66C0F4;
+
+}
+.analysis-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    max-width:900px;
+
+    margin:50px auto;
+
+}
+.analysis-card{
+
+background:#1b2838;
+
+padding:35px;
+
+border-radius:15px;
+
+text-align:center;
+
+transition:.35s;
+
+cursor:pointer;
+
+border:1px solid #2d4b65;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+.analysis-card:hover{
+
+transform:translateY(-10px);
+
+background:#22394f;
+
+border-color:#66C0F4;
+
+}
+.analysis-card i{
+
+font-size:55px;
+
+color:#66C0F4;
+
+margin-bottom:25px;
+
+}
+.analysis-card h3{
+
+font-size:26px;
+
+margin-bottom:18px;
+
+}
+.analysis-card p{
+
+color:#b8b6b4;
+
+line-height:28px;
+
+margin-bottom:30px;
+
+}
+.analysis-card button{
+
+background:#66C0F4;
+
+color:white;
+
+border:none;
+
+padding:12px 30px;
+
+border-radius:8px;
+
+font-size:17px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+.analysis-card button:hover{
+
+background:#1999ff;
+
+}
+/*=========================
+  Home Logo
+=========================*/
+
+.home-logo{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:30px 60px 10px;
+
+}
+
+.logo-small{
+
+font-size:55px;
+
+color:#66C0F4;
+
+}
+
+.logo-text h2{
+
+margin:0;
+
+font-size:38px;
+
+font-weight:800;
+
+letter-spacing:4px;
+
+color:white;
+
+}
+
+.logo-text span{
+
+display:block;
+
+margin-top:2px;
+
+font-size:16px;
+
+letter-spacing:6px;
+
+color:#66C0F4;
+
+font-weight:600;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="overlay"></div>
+<!-- ==========================
+     SPLASH SCREEN
+========================== -->
+
+<div class="splash" id="splash">
+
+    <i class="fa-brands fa-steam logo"></i>
+
+    <h1 class="title">
+        STEAM
+    </h1>
+
+    <p class="subtitle">
+        ANALYTICS
+    </p>
+
+    <div class="loading">
+
+        <div class="progress"></div>
+
+    </div>
+
+    <p id="loadingText">
+        Loading Dashboard...
+    </p>
+
+</div>
+<!-- ==========================
+        DASHBOARD
+========================== -->
+
+<!-- ==========================
+HOME PAGE
+========================== -->
+<div class="dashboard" id="dashboard">
+    <div class="home-logo">
+
+    <i class="fa-brands fa-steam logo-small"></i>
+
+    <div class="logo-text">
+
+        <h2>STEAM</h2>
+
+        <span>ANALYTICS</span>
+
+    </div>
+
+</div>
+ <section class="content">
+
+<section class="hero">
+
+<h1>
+
+Steam Analytics Dashboard
+
+</h1>
+
+<p>
+
+Explore Steam game data through interactive dashboards and discover insights into the gaming market.
+
+</p>
+
+</section>
+
+
+<h2 class="section-title">
+
+Choose Analysis Section
+
+</h2>
+
+
+<div class="analysis-grid">
+    <div class="analysis-card">
+
+<i class="fa-solid fa-chart-pie"></i>
+
+<h3>Overview Dashboard</h3>
+
+</a>
+
+<p>
+
+General statistics and an overview of the Steam dataset.
+
+</p>
+
+<a href="overview.html">
+    <button>Explore</button>
+</a>
+
+
+
+</div>
+<div class="analysis-card">
+
+<i class="fa-solid fa-earth-americas"></i>
+
+<h3>Market Analysis</h3>
+
+<p>
+
+Analyze market trends.
+
+</p>
+
+
+<a href="market.html">
+    <button>Explore</button>
+</a>
+
+
+</div>
+<div class="analysis-card">
+
+<i class="fa-solid fa-star"></i>
+
+<h3>Player Satisfaction</h3>
+
+<p>
+
+Explore ratings, reviews, Metacritic scores, and player feedback.
+
+</p>
+
+<a href="Satisfaction.html">
+    <button>Explore</button>
+</a>
+
+</div>
+<div class="analysis-card">
+
+<i class="fa-solid fa-clock"></i>
+
+<h3>Player Engagement</h3>
+
+<p>
+
+Analyze playtime, achievements, peak CCU, and recommendations.
+
+</p>
+
+<a href="Engagement.html">
+    <button>Explore</button>
+</a>
+
+</div>
+
+
+</div>
+    </section>
+
+        </section>
+
+    </div>
+</div>
+</div>
+<script>
+
+const splash = document.getElementById("splash");
+const dashboard = document.getElementById("dashboard");
+
+dashboard.style.display = "none";
+
+setTimeout(function(){
+
+    splash.style.display = "none";
+
+    dashboard.style.display = "block";
+
+    document.body.style.overflow = "auto";
+
+},4000);
+
+</script>
+
+</body>
+

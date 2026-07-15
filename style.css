@@ -1,0 +1,270 @@
+/* ===========================
+   GENERAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#171A21;
+    color:#FFFFFF;
+}
+
+/* ===========================
+   LAYOUT
+=========================== */
+
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+
+    width:260px;
+    background:#1B2838;
+    border-right:1px solid #2A475E;
+    padding:30px 20px;
+
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:45px;
+
+}
+
+.logo i{
+
+    font-size:45px;
+    color:#66C0F4;
+
+}
+
+.logo-text h2{
+
+    font-size:28px;
+    letter-spacing:2px;
+
+}
+
+.logo-text span{
+
+    color:#66C0F4;
+    letter-spacing:4px;
+    font-size:14px;
+
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.sidebar nav{
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+}
+
+.sidebar nav a{
+
+    text-decoration:none;
+    color:#C7D5E0;
+    padding:14px 18px;
+    border-radius:10px;
+    transition:.3s;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.sidebar nav a:hover{
+
+    background:#22394F;
+    color:white;
+
+}
+
+.sidebar nav a.active{
+
+    background:#66C0F4;
+    color:#171A21;
+    font-weight:bold;
+
+}
+
+.sidebar nav i{
+
+    width:25px;
+    text-align:center;
+
+}
+
+/* ===========================
+   MAIN
+=========================== */
+
+.main-content{
+
+    flex:1;
+    padding:40px;
+    overflow:auto;
+
+}
+
+.page-title{
+
+    font-size:40px;
+    margin-bottom:10px;
+
+}
+
+.page-subtitle{
+
+    color:#B8B6B4;
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+   DASHBOARD
+=========================== */
+
+.dashboard-container{
+
+    background:#1B2838;
+    border-radius:15px;
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+
+    height:850px;
+
+}
+
+.dashboard-container iframe{
+
+    width:100%;
+    height:100%;
+    border:none;
+
+}
+
+/* ===========================
+   BACK BUTTON
+=========================== */
+
+.back-home{
+
+    margin-top:40px;
+
+}
+
+.back-home a{
+
+    color:#66C0F4;
+    text-decoration:none;
+    font-size:15px;
+
+}
+
+.back-home a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2A475E;
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#171A21;
+
+}
+/* ===========================
+   INSIGHTS
+=========================== */
+
+.insights{
+
+    margin-top:40px;
+
+}
+
+.insights h2{
+
+    color:#66C0F4;
+
+    margin-bottom:20px;
+
+    font-size:30px;
+
+}
+
+.insight-card{
+
+    background:#1B2838;
+
+    color:#C7D5E0;
+
+    padding:18px 22px;
+
+    margin-bottom:18px;
+
+    border-left:5px solid #66C0F4;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+}
+
+.insight-card i{
+
+    color:#66C0F4;
+
+    margin-right:10px;
+
+}
+
+.insight-card:hover{
+
+    transform:translateX(8px);
+
+    background:#22394F;
+
+}
